@@ -25,7 +25,7 @@
   "homepage": "https://ntemposd.github.io/babyweeks",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -b babyweeks-react"
   },
   "browserslist": {
     "production": [
