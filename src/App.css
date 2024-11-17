@@ -1,0 +1,155 @@
+/* General App Styling */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding: 2rem; */
+  width: 100%;
+}
+
+.App-logo {
+  width: 160px; /* Set explicit width */
+  height: 160px; /* Set explicit height */
+  pointer-events: none;
+  transition: transform var(--transition-speed) ease;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    /* animation: App-logo-spin infinite 10s linear; */
+  }
+}
+
+/* Header Styling */
+.App-header {
+  background-color: var(--header-bg-color);
+  color: var(--text-light);
+  width: 100%;
+  /* height: 50vmax; */
+  /* padding: 2rem 1rem; */
+  box-shadow: 0 4px 12px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Centered Content Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.App-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-speed) ease;
+}
+
+.App-link:hover {
+  color: #8a80ff;
+}
+
+/* Logo Animation */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Calculator Section Styling */
+.calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: var(--light-bg-color);
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px var(--shadow-light);
+  transition: background-color var(--transition-speed);
+}
+
+.calculator label h2 {
+  /* font-size: 1.5rem; */
+  /* color: var(--text-color); */
+  /* margin-bottom: 0.5rem; */
+}
+
+/* Input Styling */
+input[type="date"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  padding-right: 3rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--light-bg-color);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px var(--shadow-light);
+  /* outline: none; */
+  transition: all var(--transition-speed) ease;
+}
+
+input[type="date"]:focus {
+  border-color: var(--primary-color);
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px var(--shadow-dark);
+}
+
+input[type="date"]:hover {
+  border-color: #bbb;
+}
+
+input[type="date"]::placeholder {
+  color: #aaa;
+}
+
+/* Input Wrapper with Icon */
+.input-wrapper {
+  position: relative;
+  max-width: 300px;
+  margin: auto;
+}
+
+.input-wrapper .icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bbb;
+  pointer-events: none;
+}
+
+.navigation .btn {
+  margin: 0 5px;
+}
+
+/* Message Box Styling */
+.message {
+  color: var(--text-color);
+  padding: 15px 20px;
+  border-radius: var(--border-radius);
+  font-size: 1.1em;
+  box-shadow: 0 2px 6px var(--shadow-light);
+  max-width: 80%;
+  margin: 20px auto 0;
+  text-align: center;
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.message.show {
+  opacity: 1;
+}
