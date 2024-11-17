@@ -1,33 +1,60 @@
+/* General App Styling */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 10s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 0vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* padding: 2rem; */
+  width: 100%;
+}
+
+.App-logo {
+  width: 160px; /* Set explicit width */
+  height: 160px; /* Set explicit height */
+  pointer-events: none;
+  transition: transform var(--transition-speed) ease;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    /* animation: App-logo-spin infinite 10s linear; */
+  }
+}
+
+/* Header Styling */
+.App-header {
+  background-color: var(--header-bg-color);
+  color: var(--text-light);
+  width: 100%;
+  /* height: 50vmax; */
+  /* padding: 2rem 1rem; */
+  box-shadow: 0 4px 12px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Centered Content Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+  text-align: center;
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-speed) ease;
 }
 
+.App-link:hover {
+  color: #8a80ff;
+}
+
+/* Logo Animation */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,77 +64,88 @@
   }
 }
 
+/* Calculator Section Styling */
 .calculator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: var(--light-bg-color);
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px var(--shadow-light);
+  transition: background-color var(--transition-speed);
 }
 
-/* Modern input styling */
+.calculator label h2 {
+  /* font-size: 1.5rem; */
+  /* color: var(--text-color); */
+  /* margin-bottom: 0.5rem; */
+}
+
+/* Input Styling */
 input[type="date"] {
-    width: 100%;
-    max-width: 300px;
-    padding: 12px 16px;
-    padding-right: 40px; /* Make space for the icon */
-    font-size: 16px;
-    color: #333;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    outline: none;
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  padding-right: 3rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--light-bg-color);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px var(--shadow-light);
+  /* outline: none; */
+  transition: all var(--transition-speed) ease;
 }
 
 input[type="date"]:focus {
-    border-color: #6c63ff; /* Accent color when focused */
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(108, 99, 255, 0.2); /* Add shadow when focused */
-}
-
-input[type="date"]::placeholder {
-    color: #aaa;
+  border-color: var(--primary-color);
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px var(--shadow-dark);
 }
 
 input[type="date"]:hover {
-    border-color: #bbb;
+  border-color: #bbb;
 }
 
-/* Wrapper for the input with icon */
+input[type="date"]::placeholder {
+  color: #aaa;
+}
+
+/* Input Wrapper with Icon */
 .input-wrapper {
-    position: relative;
-    max-width: 300px;
-    margin: auto;
+  position: relative;
+  max-width: 300px;
+  margin: auto;
 }
 
 .input-wrapper .icon {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #bbb;
-    pointer-events: none;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bbb;
+  pointer-events: none;
 }
 
-/* Styles for the message */
-.message {
-  /* background-color: #f8f9fa; /* Light background to highlight the message */ 
-  color: #333; /* Dark text color for good contrast */
-  padding: 15px 20px; /* Padding around the text */
-  border-radius: 8px; /* Rounded corners */
-  font-size: 1.1em; /* Slightly larger font for readability */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow to make it pop */
-  margin-top: 20px; /* Space above the message */
-  max-width: 80%; /* Limit the width */
-  margin-left: auto; /* Center the message */
-  margin-right: auto; /* Center the message */
-  text-align: center; /* Center the text */
-  line-height: 1.5; /* Better line spacing for readability */
+.navigation .btn {
+  margin: 0 5px;
 }
 
-/* Optional: Add animation or transitions for smooth appearance */
+/* Message Box Styling */
 .message {
+  color: var(--text-color);
+  padding: 15px 20px;
+  border-radius: var(--border-radius);
+  font-size: 1.1em;
+  box-shadow: 0 2px 6px var(--shadow-light);
+  max-width: 80%;
+  margin: 20px auto 0;
+  text-align: center;
+  line-height: 1.5;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
