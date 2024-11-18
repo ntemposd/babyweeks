@@ -1,0 +1,36 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Roboto, sans-serif;
+    overflow-x: hidden;
+}
+:root {
+    --primary-color: #6c63ff;
+    --header-bg-color: #1f1137;
+    --light-bg-color: #f9f9f9;
+    --text-color: #333;
+    --text-light: #fff;
+    --shadow-light: #0000001a;
+    --shadow-dark: #0003;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+.material-icons,
+.material-icons-outlined {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga";
+    color: #d60270;
+    display: inline-block;
+    font-family: Material Icons;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-rendering: optimizeLegibility;
+    vertical-align: middle;
+    white-space: nowrap;
+}

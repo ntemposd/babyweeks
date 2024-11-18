@@ -99,7 +99,7 @@ function BabyWeeksCalculator() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header bg-gradient">
         <div className="container pt-4 text-center">
           <img
             src={babyImage}
