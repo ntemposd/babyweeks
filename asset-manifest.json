@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/babyweeks/static/css/main.2554b0cd.css",
-    "main.js": "/babyweeks/static/js/main.16b47b93.js",
+    "main.css": "/babyweeks/static/css/main.02dd0f22.css",
+    "main.js": "/babyweeks/static/js/main.9266c21b.js",
+    "static/media/baby_texture.png": "/babyweeks/static/media/baby_texture.aaeb2c181700eda24029.png",
     "static/media/baby-girl.svg": "/babyweeks/static/media/baby-girl.b8742f249111c9690abd4d522c66ef4f.svg",
     "index.html": "/babyweeks/index.html",
-    "main.2554b0cd.css.map": "/babyweeks/static/css/main.2554b0cd.css.map",
-    "main.16b47b93.js.map": "/babyweeks/static/js/main.16b47b93.js.map"
+    "main.02dd0f22.css.map": "/babyweeks/static/css/main.02dd0f22.css.map",
+    "main.9266c21b.js.map": "/babyweeks/static/js/main.9266c21b.js.map"
   },
   "entrypoints": [
-    "static/css/main.2554b0cd.css",
-    "static/js/main.16b47b93.js"
+    "static/css/main.02dd0f22.css",
+    "static/js/main.9266c21b.js"
   ]
 }
