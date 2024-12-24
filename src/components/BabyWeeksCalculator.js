@@ -150,7 +150,8 @@ function BabyWeeksCalculator() {
             style={{ width: '20vmin', height: 'auto' }}
           />
           <h1 className="fw-bold">Growth Leaps</h1>
-          <p className="fw-light mt-1"><span className="material-icons">tips_and_updates</span> Explore Your Infant’s Development <span className="material-icons">tips_and_updates</span></p>
+          <h6 className="fw-bold">Testing GH Actions</h6>
+          <p className="fw-light mt-1"><span className="material-icons">tips_and_updates</span> Explore Your Infant's Development <span className="material-icons">tips_and_updates</span></p>
         </div>
         {/* Add the SVG line here */}
         <svg height="1" width="100%" className="header-line">
