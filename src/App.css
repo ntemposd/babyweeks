@@ -13,13 +13,21 @@
 }
 .App-header {
     align-items: center;
-    background-color: var(--header-bg-color);
+    background-repeat: repeat;
+    background-size: 50px 50px; /* Adjust the size of the repeated tiles */
     box-shadow: 0 4px 12px var(--shadow-light);
     color: var(--text-light);
     display: flex;
     flex-direction: column;
     width: 100%;
+
+    /* Apply the gradient first, then the baby texture */
+    background-image:
+      url('./assets/baby_texture.png'), /* Texture image */
+      linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(255, 0, 255, 0.5)); /* Gradient */
 }
+
+
 .container {
     max-width: 1200px;
     padding: 0 1rem;
@@ -45,20 +53,20 @@
 }
 .calculator {
     align-items: center;
-    background-color: var(--light-bg-color);
+    /* background-color: var(--light-bg-color); */
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px var(--shadow-light);
+    /* box-shadow: 0 4px 8px var(--shadow-light); */
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: rem;
     max-width: 500px;
-    padding: 2rem;
+    padding: 1rem;
     transition: background-color var(--transition-speed);
     width: 100%;
 }
 input[type="date"] {
     background-color: var(--light-bg-color);
-    border: 1px solid #ddd;
+    border: 10px solid #ddd;
     border-radius: var(--border-radius);
     box-shadow: 0 2px 5px var(--shadow-light);
     color: var(--text-color);
@@ -103,11 +111,14 @@ input[type="date"]::placeholder {
     line-height: 1.5;
     margin: 20px auto 0;
     max-width: 80%;
+    height: 400px; /* Set a fixed height */
+    overflow: hidden; /* Ensures that long text doesn't break the layout */
     opacity: 0;
     padding: 15px 20px;
     text-align: center;
     transition: opacity 0.5s ease-in-out;
 }
+
 .message.show {
     opacity: 1;
 }

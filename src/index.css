@@ -24,13 +24,13 @@ code {
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "liga";
     color: #d60270;
-    display: inline-block;
     font-family: Material Icons;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: normal;
+    /* display: inline-block; */
+    /* font-size: 24px; */
+    /* font-style: normal; */
+    /* font-weight: 400; */
+    /* letter-spacing: normal; */
     text-rendering: optimizeLegibility;
-    vertical-align: middle;
-    white-space: nowrap;
+    vertical-align: top;
+    /* white-space: nowrap; */
 }
