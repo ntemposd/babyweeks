@@ -21,87 +21,84 @@ function BabyWeeksCalculator() {
 
   // Function to calculate weeks since the selected date
   function calculateWeeks(selectedDate) {
-  if (!selectedDate) return; // Safety check
-  const today = new Date();
-  const differenceInTime = today - selectedDate;
-  const weeks = Math.floor(differenceInTime / (1000 * 60 * 60 * 24 * 7));
+    if (!selectedDate) return; // Safety check
+    const today = new Date();
+    const differenceInTime = today - selectedDate;
+    const weeks = Math.floor(differenceInTime / (1000 * 60 * 60 * 24 * 7));
 
-  // Check for future dates (baby not born yet)
-  if (differenceInTime < 0) {
-    setWeekDifference(null); // Clear any previous value
-    setDisplayedMessage("Your baby is not born yet! Please select a valid date.");
-    setAllTransitions([]); // Clear transitions
-    setCurrentMessageIndex(null);
-    return;
-  }
-
-  // Check if the baby is older than 1 year
-  if (weeks > 52) {
-    setWeekDifference(null); // Clear any previous value
-    setDisplayedMessage(
-      "Your baby is over a year old! This app focuses on development during the first year."
-    );
-    setAllTransitions([]); // Clear transitions
-    setCurrentMessageIndex(null);
-    return;
-  }
-
-  // If the date is valid, proceed with the calculation
-  setWeekDifference(weeks);
-
-  console.log("Weeks:", weeks); // Log the calculated weeks
-
-  // Find the specific leap or interval
-  let currentTransition = null;
-  let genericMessage = null;
-
-  const foundTransition = transitionsData.transitions.find(({ minWeeks, maxWeeks }) =>
-    weeks >= minWeeks && weeks <= maxWeeks
-  );
-
-  if (foundTransition) {
-    currentTransition = foundTransition;
-  } else {
-    // Handle intervals between leaps
-    const previousLeap = transitionsData.transitions
-      .filter(({ maxWeeks }) => weeks > maxWeeks)
-      .sort((a, b) => b.maxWeeks - a.maxWeeks)[0]; // Find the last completed leap
-
-    const nextLeap = transitionsData.transitions
-      .filter(({ minWeeks }) => weeks < minWeeks)
-      .sort((a, b) => a.minWeeks - b.minWeeks)[0]; // Find the upcoming leap
-
-    if (previousLeap && nextLeap) {
-      genericMessage = `Your baby is growing steadily. Stay tuned for the next leap at week ${nextLeap.minWeeks}!`;
-    } else if (!previousLeap && nextLeap) {
-      // If no previous leap (baby is too young)
-      genericMessage = `Your baby is growing steadily. The first leap starts at week ${nextLeap.minWeeks}.`;
-    } else if (previousLeap && !nextLeap) {
-      // If no next leap (baby is older than last leap)
-      genericMessage = "Your baby has completed all leaps! Celebrate their growth!";
+    // Check for future dates (baby not born yet)
+    if (differenceInTime < 0) {
+      setWeekDifference(null); // Clear any previous value
+      setDisplayedMessage("Your baby is not born yet! Please select a valid date.");
+      setAllTransitions([]); // Clear transitions
+      setCurrentMessageIndex(null);
+      return;
     }
+
+    // Check if the baby is older than 1 year
+    if (weeks > 52) {
+      setWeekDifference(null); // Clear any previous value
+      setDisplayedMessage(
+        "Your baby is over a year old! This app focuses on development during the first year."
+      );
+      setAllTransitions([]); // Clear transitions
+      setCurrentMessageIndex(null);
+      return;
+    }
+
+    // If the date is valid, proceed with the calculation
+    setWeekDifference(weeks);
+
+    console.log("Weeks:", weeks); // Log the calculated weeks
+
+    // Find the specific leap or interval
+    let currentTransition = null;
+    let genericMessage = null;
+
+    const foundTransition = transitionsData.transitions.find(({ minWeeks, maxWeeks }) =>
+      weeks >= minWeeks && weeks <= maxWeeks
+    );
+
+    if (foundTransition) {
+      currentTransition = foundTransition;
+    } else {
+      // Handle intervals between leaps
+      const previousLeap = transitionsData.transitions
+        .filter(({ maxWeeks }) => weeks > maxWeeks)
+        .sort((a, b) => b.maxWeeks - a.maxWeeks)[0]; // Find the last completed leap
+
+      const nextLeap = transitionsData.transitions
+        .filter(({ minWeeks }) => weeks < minWeeks)
+        .sort((a, b) => a.minWeeks - b.minWeeks)[0]; // Find the upcoming leap
+
+      if (previousLeap && nextLeap) {
+        genericMessage = `Your baby is growing steadily. Stay tuned for the next leap at week ${nextLeap.minWeeks}!`;
+      } else if (!previousLeap && nextLeap) {
+        // If no previous leap (baby is too young)
+        genericMessage = `Your baby is growing steadily. The first leap starts at week ${nextLeap.minWeeks}.`;
+      } else if (previousLeap && !nextLeap) {
+        // If no next leap (baby is older than last leap)
+        genericMessage = "Your baby has completed all leaps! Celebrate their growth!";
+      }
+    }
+
+    // Prepare the ordered list of transitions for navigation
+    const orderedTransitions = [...transitionsData.transitions].sort(
+      (a, b) => a.minWeeks - b.minWeeks
+    );
+
+    setAllTransitions(orderedTransitions);
+
+    // Set the default displayed message
+    if (currentTransition) {
+      setCurrentMessageIndex(orderedTransitions.indexOf(currentTransition));
+    } else {
+      setCurrentMessageIndex(null); // No specific leap
+      setDisplayedMessage(genericMessage);
+    }
+
+    console.log("Ordered transitions:", orderedTransitions);
   }
-
-  // Prepare the ordered list of transitions for navigation
-  const orderedTransitions = [...transitionsData.transitions].sort(
-    (a, b) => a.minWeeks - b.minWeeks
-  );
-
-  setAllTransitions(orderedTransitions);
-
-  // Set the default displayed message
-  if (currentTransition) {
-    setCurrentMessageIndex(orderedTransitions.indexOf(currentTransition));
-  } else {
-    setCurrentMessageIndex(null); // No specific leap
-    setDisplayedMessage(genericMessage);
-  }
-
-  console.log("Ordered transitions:", orderedTransitions);
-}
-
-
-
 
   // Function to format and display transition message
   function formatMessage(transition) {
@@ -132,7 +129,6 @@ function BabyWeeksCalculator() {
       return newIndex;
     });
   }
-
 
   // Effect to update the displayed message when the currentMessageIndex changes
   useEffect(() => {
@@ -175,14 +171,8 @@ function BabyWeeksCalculator() {
             className="my-2 form-control text-center lead"
             dateFormat="yyyy-MM-dd"
           />
-
         </div>
 
-
-
-        {/*<p>
-          Hooray! Your baby is <b>{weekDifference !== null ? weekDifference : ''}</b> weeks old
-        </p>*/}
         {/* Always show buttons */}
         {allTransitions.length > 0 && weekDifference !== null && (
           <div className="navigation mt-3">
