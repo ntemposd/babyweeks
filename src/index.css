@@ -15,9 +15,36 @@ body {
     --border-radius: 8px;
     --transition-speed: 0.3s;
 }
+
+header {
+    width: 100%; /* Ensure header spans the full width */
+    text-align: center; /* Center text inside the header */
+}
+
+main {
+    flex: 1; /* Allow main content to grow and push the footer down */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center main content horizontally */
+    justify-content: flex-start; /* Align content to the top of the main area */
+    /* padding-top: 2rem; Add spacing below the header */
+    width: 100%;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
 }
+
+/* General Layout */
+a {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: initial;
+}
+
 .material-icons,
 .material-icons-outlined {
     -webkit-font-smoothing: antialiased;

@@ -1,124 +1,131 @@
 .App {
-    align-items: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+    flex-direction: column; /* Stack header, main, and footer vertically */
+    min-height: 100vh; /* Full viewport height */
 }
+
 .App-logo {
-    height: 160px;
-    pointer-events: none;
-    transition: transform var(--transition-speed) ease;
     width: 160px;
+    height: 160px;
+    transition: transform var(--transition-speed) ease;
+    pointer-events: none;
 }
+
 .App-header {
-    align-items: center;
-    background-repeat: repeat;
-    background-size: 50px 50px; /* Adjust the size of the repeated tiles */
-    box-shadow: 0 4px 12px var(--shadow-light);
-    color: var(--text-light);
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
-
-    /* Apply the gradient first, then the baby texture */
-    background-image:
-      url('./assets/baby_texture.png'), /* Texture image */
-      linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(255, 0, 255, 0.5)); /* Gradient */
+    background-image: 
+        url('./assets/baby_texture.png'), /* Texture image */
+        linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.9)); /* Light gradient */
+    background-repeat: repeat;
+    background-size: 50px 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: var(--text-light);
 }
-
 
 .container {
+    width: 100%;
     max-width: 1200px;
     padding: 0 1rem;
     text-align: center;
-    width: 100%;
 }
-.App-link {
-    color: var(--primary-color);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color var(--transition-speed) ease;
-}
-.App-link:hover {
-    color: #8a80ff;
-}
-@keyframes App-logo-spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(1turn);
-    }
-}
+
 .calculator {
-    align-items: center;
-    /* background-color: var(--light-bg-color); */
-    border-radius: var(--border-radius);
-    /* box-shadow: 0 4px 8px var(--shadow-light); */
     display: flex;
     flex-direction: column;
-    gap: rem;
+    align-items: center;
+    gap: 1rem;
     max-width: 500px;
     padding: 1rem;
-    transition: background-color var(--transition-speed);
     width: 100%;
 }
+
 input[type="date"] {
-    background-color: var(--light-bg-color);
-    border: 10px solid #ddd;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 5px var(--shadow-light);
-    color: var(--text-color);
-    font-size: 1rem;
-    max-width: 300px;
-    padding: 0.75rem 3rem 0.75rem 1rem;
-    transition: all var(--transition-speed) ease;
     width: 100%;
+    max-width: 300px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--light-bg-color);
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-speed) ease;
 }
+
 input[type="date"]:focus {
     background-color: #fff;
     border-color: var(--primary-color);
-    box-shadow: 0 4px 8px var(--shadow-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 input[type="date"]:hover {
     border-color: #bbb;
 }
+
 input[type="date"]::placeholder {
     color: #aaa;
 }
-.input-wrapper {
-    margin: auto;
-    max-width: 300px;
+
+.message-slider {
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
     position: relative;
+    margin: 0 auto;
+    padding-bottom: 30px; /* Space for dots */
 }
-.input-wrapper .icon {
-    color: #bbb;
-    pointer-events: none;
+
+.slick-dots {
     position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex !important;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-.navigation .btn {
-    margin: 0 5px;
+
+.slick-dots li button:before {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    opacity: 0.5;
 }
+
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+}
+
 .message {
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 6px var(--shadow-light);
-    color: var(--text-color);
-    font-size: 1.1em;
-    line-height: 1.5;
-    margin: 20px auto 0;
+    margin: 0 auto;
     max-width: 80%;
-    height: 400px; /* Set a fixed height */
-    overflow: hidden; /* Ensures that long text doesn't break the layout */
-    opacity: 0;
-    padding: 15px 20px;
+    padding: 15px 20px; /* Adjusted for original typography */
+    font-size: 1.1rem; /* Restored original typography */
+    line-height: 1.5; /* Restored original line-height */
+    color: var(--text-color);
+    background-color: #fff; /* Bright white background */
+    /* border: 1px solid rgba(0, 0, 0, 0.1); Subtle border */
+    border-radius: var(--border-radius); /* Smooth corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for modern look */
     text-align: center;
-    transition: opacity 0.5s ease-in-out;
+    min-height: 150px; /* Prevent collapse for short messages */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add hover animation */
 }
 
 .message.show {
-    opacity: 1;
+    opacity: 1; /* Animations for Message Visibility */
+}
+
+footer {
+    width: 100%;
+    /* text-align: center; */
+    font-size: 0.9rem;
+    /* color: var(--text-color); */
+    /* background-color: var(--light-bg-color); */
+    padding: 1rem 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }

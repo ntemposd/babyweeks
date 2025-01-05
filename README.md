@@ -1,12 +1,11 @@
 # Babyweeks
 
-Babyweeks is a React app designed to help users track their baby's development milestones by calculating the number of weeks since a given birthdate and providing relevant insights. The idea started back in 2022 using PyScript and transitioned to React in early 2025. The app is hosted on GitHub Pages.
+Babyweeks is a React app designed to help users track their baby's development milestones by calculating the number of weeks since a given birthdate. It started back in 2021 using PyScript and transitioned to React in early 2025. The app is hosted on GitHub Pages.
 
-## Features
+## What a user can do
 
 - Input a birthdate to calculate the weeks since birth.
-- View developmental milestones content for specific week ranges.
-- Navigate through transitions using a simple and intuitive interface.
+- View developmental milestones content for a baby's first year.
 
 ---
 
