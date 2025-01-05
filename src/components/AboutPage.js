@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import babyImage from '../assets/baby-girl.svg';
 import headerImage from '../assets/baby_texture.png';
 
@@ -11,20 +12,31 @@ preloadImage(babyImage);
 preloadImage(headerImage);
 
 const AboutPage = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   return (
     <div className="App text-center">
       <header className="App-header">
-        <div className="container pt-4">
+        <div className="container pt-4 position-relative">
+          {/* Back Button */}
+          <button
+            onClick={() => navigate('/')} // Navigate to homepage
+            className="back-button"
+            aria-label="Back to Homepage"
+          >
+            <span className="material-icons">arrow_back</span> Home
+          </button>
+
           <img src={babyImage} className="App-logo" alt="Baby" />
           <h1 className="fw-bold">Growth Leaps</h1>
-          <p className="fw-light mt-1"><span className="highlight">Why I built this app.</span>{' '}
+          <p className="fw-light mt-1">
+            <span className="lead">Why I built this app.</span>{' '}
             <span
               className="material-icons"
               aria-label="Under construction"
             >
               construction
-            </span>{' '}
-            
+            </span>
           </p>
         </div>
         <svg height="1" width="100%" className="header-line">
@@ -32,14 +44,24 @@ const AboutPage = () => {
         </svg>
       </header>
       <main>
-          
+        <section className="about container container-fluid container-lg container-md container-sm container-xl container-xxl">
           <p>
-            During a child’s first year, unexpected short-term mood changes, without other medical signs, may be linked to transitions between growth cycle stages. These periods, often referred to as Growth Leaps, vary from child to child and are rather based on observation than in scientific evidence. Understanding transitions can help parents navigate their child's infancy with greater patience.
+            During a child's first year, brief periods of unexpected mood
+            changes, occurring without other noticeable symptoms, may be linked
+            to transitions between growth cycle stages. Often referred to as
+            "Growth Leaps", these periods vary from child to child and are
+            primarily based on observation rather than scientific evidence.
+            Gaining insight into these transitions can help parents approach
+            their child's infancy with greater patience.
           </p>
           <h2>How it works</h2>
           <p>
-            The app helped my partner quickly calculate the current week of our kids' growth cycles,
-            saving the need to count manually in the calendar. The app is free,{' '}
+            Simply input a birthdate to calculate the weeks since birth and view
+            developmental progress content for a baby's first year. Using the
+            app, we’ve been able to quickly determine the current week of our
+            kids' growth cycles, which has been especially helpful for my
+            partner, saving the hassle of manually counting on a calendar. The
+            app is free,{' '}
             <a
               href="https://github.com/ntemposd/babyweeks"
               target="_blank"
@@ -47,25 +69,15 @@ const AboutPage = () => {
               className="link"
             >
               open-source
-            </a>{' '}
-            and runs on your browser.
-          </p>
-        
-          <h2>Upcoming improvements</h2>
-          <ul className="list-group mt-1">
-            <li className="list-group-item">Translate into more languages</li>
-            <li className="list-group-item">Add year 1+ transitions content</li>
-          </ul>
-          <p className="mt-4">
-            Have an idea? Send me an{' '}
-            <a
-              href="mailto:hello@babyweeks.app"
-              className="link"
-            >
-              email
             </a>
-            .
+            , and runs directly in your browser.
           </p>
+
+          <h2>Roadmap</h2>
+          <p>Add languages <br />
+             Add more content <br />
+          </p>
+        </section>
       </main>
 
       <footer>

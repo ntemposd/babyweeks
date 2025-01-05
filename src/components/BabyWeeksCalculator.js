@@ -47,7 +47,7 @@ function BabyWeeksCalculator() {
         <div className="container pt-4">
           <img src={babyImage} className="App-logo" alt="Baby" />
           <h1 className="fw-bold">Growth Leaps</h1>
-          <p className="fw-light mt-1">Explore Your Infant's Development <Link to="/about"><span className="material-icons">info</span>
+          <p className="lead">Explore Your Infant's Development <Link to="/about"><span className="material-icons">info</span>
           </Link></p>
         </div>
         <svg height="1" width="100%" className="header-line">

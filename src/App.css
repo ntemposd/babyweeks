@@ -5,8 +5,8 @@
 }
 
 .App-logo {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
     transition: transform var(--transition-speed) ease;
     pointer-events: none;
 }
@@ -116,6 +116,20 @@ input[type="date"]::placeholder {
     transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add hover animation */
 }
 
+.about {
+    width: 85%;
+    margin: 10px auto;
+    padding: 30px 20px; /* Adjusted for original typography */
+    font-size: 1.1rem; /* Restored original typography */
+    line-height: 1.5; /* Restored original line-height */
+    color: var(--text-color);
+    background-color: #fff; /* Bright white background */
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    border-radius: var(--border-radius); /* Smooth corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for modern look */
+    text-align: center;
+}
+
 .message.show {
     opacity: 1; /* Animations for Message Visibility */
 }
@@ -129,3 +143,36 @@ footer {
     padding: 1rem 0;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    /* background-color: #f0f0f0; */
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .back-button .material-icons {
+    font-size: 18px;
+  }
+  
+  .back-button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+  }
+  
+  .back-button:focus {
+    outline: 2px solid #ffcc00;
+  }
+  
