@@ -81,11 +81,12 @@ export function calculateWeeks(selectedDate, today = new Date()) {
   // Function to format transition message
   export function formatMessage(transition) {
     if (!transition) {
-      console.error("Invalid Transition Passed to formatMessage");
+      if (process.env.NODE_ENV === 'development') {
+        console.error("Invalid Transition Passed to formatMessage");
+      }
       return null;
     }
   
-    console.log("Formatting Transition Message:", transition);
     return (
       <>
         <h5 className="transition-title">{transition.title}</h5>

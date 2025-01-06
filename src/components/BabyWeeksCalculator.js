@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom'; // Import the Link component
+import React, { useState, useRef, useMemo } from 'react'; // Added useMemo
+import { Link } from 'react-router-dom';
 import '../App.css';
 import babyImage from '../assets/baby-girl.svg';
 import headerImage from '../assets/baby_texture.png';
@@ -12,7 +12,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 // Import the custom hook
 import { useBabyTransitions } from '../hooks/useBabyTransitions';
-import { formatMessage } from '../utils/utils';
 
 function preloadImage(url) {
   const img = new Image();
@@ -34,6 +33,22 @@ function BabyWeeksCalculator() {
     setCurrentMessageIndex,
   } = useBabyTransitions(startDate, transitionsData);
 
+  // Memoize formatted transitions
+  const memoizedFormattedTransitions = useMemo(() => {
+    return allTransitions.map(transition => ({
+      ...transition,
+      formattedMessage: (
+        <>
+          <h5 className="transition-title">{transition.title}</h5>
+          <p className="transition-weeks text-muted fs-6">
+            Weeks: {transition.minWeeks}-{transition.maxWeeks}
+          </p>
+          <p className="transition-description">{transition.description}</p>
+        </>
+      ),
+    }));
+  }, [allTransitions]);
+
   // Show slider if valid transitions exist
   const showSlider =
     startDate &&
@@ -46,9 +61,10 @@ function BabyWeeksCalculator() {
       <header className="App-header">
         <div className="container pt-4">
           <img src={babyImage} className="App-logo" alt="Baby" />
-          <h1 className="fw-bold">Babyweeks</h1>
-          <p className="lead">Explore Your Infant's Development <Link to="/about"><span className="material-icons">info</span>
-          </Link></p>
+          <h1 className="fw-bold">Babyweeks v1</h1>
+          <p className="lead">
+            Explore Your Infant's Development <Link to="/about"><span className="material-icons">info</span></Link>
+          </p>
         </div>
         <svg height="1" width="100%" className="header-line">
           <line x1="0" y1="0" x2="100%" y2="1" stroke="yellow" strokeWidth="4" />
@@ -86,14 +102,14 @@ function BabyWeeksCalculator() {
                 slidesToShow={1}
                 slidesToScroll={1}
                 initialSlide={currentMessageIndex || 0}
-                afterChange={(index) => {
-                  console.log("Slider Changed to Index:", index);
-                  setCurrentMessageIndex(index); // Update index
-                }}
+                afterChange={(index) => setCurrentMessageIndex(index)}
               >
-                {allTransitions.map((transition, index) => (
+                {memoizedFormattedTransitions.map((transition, index) => (
                   <div key={index} className="message">
-                    {formatMessage(transition)}
+                    {Math.abs(index - currentMessageIndex) <= 1
+                      ? transition.formattedMessage // Render precomputed message
+                      : <p>Loading...</p>
+                    }
                   </div>
                 ))}
               </Slider>
@@ -102,12 +118,10 @@ function BabyWeeksCalculator() {
         </div>
       </main>
 
-      {/* Add a link to the About Page */}
       <footer className="mt-5 py-3">
         <p>© 2025 · Crafted with ❤️ by ntemposd</p>
       </footer>
     </div>
-    
   );
 }
 

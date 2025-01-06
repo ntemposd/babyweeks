@@ -17,7 +17,7 @@ export function useBabyTransitions(selectedDate, transitionsData) {
     const { isValid, weeks, message } = validateSelectedDate(selectedDate, today);
   
     if (!isValid) {
-      if (weekDifference !== null || displayedMessage !== message) {
+      if (process.env.NODE_ENV === 'development') {
         console.log("Validation failed:", message);
       }
       setWeekDifference(null);
@@ -27,7 +27,9 @@ export function useBabyTransitions(selectedDate, transitionsData) {
       return;
     }
   
-    console.log("Validation succeeded. Weeks:", weeks);
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Validation succeeded. Weeks:", weeks);
+    }
     setWeekDifference(weeks);
   
     const { foundTransition, orderedTransitions, fallbackMessage } = findTransitions(
@@ -40,6 +42,7 @@ export function useBabyTransitions(selectedDate, transitionsData) {
     setCurrentMessageIndex(foundTransition ? orderedTransitions.indexOf(foundTransition) : null);
     setDisplayedMessage(foundTransition ? '' : fallbackMessage);
   }, [selectedDate, transitionsData]);
+  
   
 
   return {
