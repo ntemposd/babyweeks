@@ -1,0 +1,41 @@
+# Changelog - Template
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [Unreleased]
+- Migrating from Pyscript to React for improved performance, scalability, and maintainability.
+- Enhanced user experience with responsive and interactive components.
+- Updated design to align with modern UI/UX trends.
+
+## [2.0.0] - YYYY-MM-DD
+### Added
+- Rebuilt the application from the ground up using React.
+- Introduced a modernized UI for a better user experience.
+- Added support for dynamic routing and reusable components.
+
+### Changed
+- Transitioned the codebase from Pyscript to React.
+- Improved code structure and maintainability.
+
+### Removed
+- Legacy Pyscript implementation.
+
+## [BETA] - YYYY-MM-DD
+### Added
+- Initial release using Pyscript.
+- Basic functionality for tracking baby milestones and weeks.
+
+---
+
+### Suggestions
+1. Replace `YYYY-MM-DD` with the actual release dates of your versions.
+2. You can add more details about what each version included, especially if there were any significant features or improvements.
+3. For the `[Unreleased]` section, add upcoming changes or features you're working on before the next release.
+
+### Next Steps
+Would you like me to:
+- Generate a pull request draft for this `CHANGELOG.md`?
+- Help with a template for future updates?
+- Add any specific details about the new React features?

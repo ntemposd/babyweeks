@@ -46,7 +46,7 @@ function BabyWeeksCalculator() {
       <header className="App-header">
         <div className="container pt-4">
           <img src={babyImage} className="App-logo" alt="Baby" />
-          <h1 className="fw-bold">Growth Leaps</h1>
+          <h1 className="fw-bold">Babyweeks</h1>
           <p className="lead">Explore Your Infant's Development <Link to="/about"><span className="material-icons">info</span>
           </Link></p>
         </div>

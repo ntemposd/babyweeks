@@ -9,58 +9,38 @@ export function useBabyTransitions(selectedDate, transitionsData) {
   const [lastSelectedDate, setLastSelectedDate] = useState(null);
 
   useEffect(() => {
-    if (!selectedDate) {
-      if (lastSelectedDate !== null) {
-        console.log("No date selected. Resetting state.");
-      }
-
-      setLastSelectedDate(null);
-      setWeekDifference(null);
-      setDisplayedMessage(''); // Reset fallback message
-      setAllTransitions([]);
-      setCurrentMessageIndex(null);
-      return;
-    }
-
-    if (selectedDate === lastSelectedDate) {
-      return;
-    }
-
+    if (!selectedDate || selectedDate === lastSelectedDate) return;
+  
     setLastSelectedDate(selectedDate);
+  
     const today = new Date();
-
     const { isValid, weeks, message } = validateSelectedDate(selectedDate, today);
-
+  
     if (!isValid) {
-      console.log("Validation failed:", message);
+      if (weekDifference !== null || displayedMessage !== message) {
+        console.log("Validation failed:", message);
+      }
       setWeekDifference(null);
-      setDisplayedMessage(message); // Show fallback message for invalid dates
+      setDisplayedMessage(message);
       setAllTransitions([]);
       setCurrentMessageIndex(null);
       return;
     }
-
+  
     console.log("Validation succeeded. Weeks:", weeks);
     setWeekDifference(weeks);
-
+  
     const { foundTransition, orderedTransitions, fallbackMessage } = findTransitions(
       weeks,
       transitionsData.transitions,
       selectedDate
     );
-
+  
     setAllTransitions(orderedTransitions);
-
-    if (foundTransition) {
-      console.log("Found Transition:", foundTransition);
-      setCurrentMessageIndex(orderedTransitions.indexOf(foundTransition));
-      setDisplayedMessage(''); // Clear fallback message when transition exists
-    } else {
-      console.log("No Transition. Fallback Message:", fallbackMessage);
-      setCurrentMessageIndex(null);
-      setDisplayedMessage(fallbackMessage); // Show fallback message
-    }
-  }, [selectedDate, transitionsData, lastSelectedDate]);
+    setCurrentMessageIndex(foundTransition ? orderedTransitions.indexOf(foundTransition) : null);
+    setDisplayedMessage(foundTransition ? '' : fallbackMessage);
+  }, [selectedDate, transitionsData]);
+  
 
   return {
     weekDifference,

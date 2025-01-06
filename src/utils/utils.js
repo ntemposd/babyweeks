@@ -10,7 +10,6 @@ export function calculateWeeks(selectedDate, today = new Date()) {
     const { weeks, differenceInTime } = calculateWeeks(selectedDate, today);
   
     if (differenceInTime < 0) {
-      console.log("Validation failed: Baby is not born yet!");
       return {
         isValid: false,
         message: "Your baby is not born yet! Please select a valid date.",
@@ -18,7 +17,6 @@ export function calculateWeeks(selectedDate, today = new Date()) {
     }
   
     if (weeks > 52) {
-      console.log("Validation failed: Baby is over a year old!");
       return {
         isValid: false,
         message: "Your baby is over a year old! This app focuses on development during the first year.",
@@ -27,6 +25,7 @@ export function calculateWeeks(selectedDate, today = new Date()) {
   
     return { isValid: true, weeks };
   }
+  
   
   // Function to find transitions and generate fallback messages
   export function findTransitions(weeks, transitionsData, selectedDate) {

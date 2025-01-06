@@ -76,6 +76,7 @@ const AboutPage = () => {
           <h2>Roadmap</h2>
           <p>Add languages <br />
              Add more content <br />
+             Improve date selection <br />
           </p>
         </section>
       </main>
