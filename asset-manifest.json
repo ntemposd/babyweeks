@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/babyweeks/static/css/main.b01f4db6.css",
-    "main.js": "/babyweeks/static/js/main.e8199389.js",
+    "main.css": "/babyweeks/static/css/main.6b06d3be.css",
+    "main.js": "/babyweeks/static/js/main.1be75e9e.js",
     "static/media/baby_texture.png": "/babyweeks/static/media/baby_texture.c51f1d197d1edd444ca6.png",
     "static/media/baby-girl.svg": "/babyweeks/static/media/baby-girl.5a4b3a923d44ff3dca3128e0c5db8e72.svg",
     "static/media/slick.svg": "/babyweeks/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -9,11 +9,11 @@
     "static/media/slick.ttf": "/babyweeks/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/babyweeks/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/babyweeks/index.html",
-    "main.b01f4db6.css.map": "/babyweeks/static/css/main.b01f4db6.css.map",
-    "main.e8199389.js.map": "/babyweeks/static/js/main.e8199389.js.map"
+    "main.6b06d3be.css.map": "/babyweeks/static/css/main.6b06d3be.css.map",
+    "main.1be75e9e.js.map": "/babyweeks/static/js/main.1be75e9e.js.map"
   },
   "entrypoints": [
-    "static/css/main.b01f4db6.css",
-    "static/js/main.e8199389.js"
+    "static/css/main.6b06d3be.css",
+    "static/js/main.1be75e9e.js"
   ]
 }
