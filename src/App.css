@@ -11,18 +11,45 @@
     pointer-events: none;
 }
 
+/* Existing header styles remain as is */
 .App-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     background-image: 
-        url('./assets/baby_texture.png'), /* Texture image */
-        linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.9)); /* Light gradient */
+        url('./assets/baby_texture.png'),
+        linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.9));
     background-repeat: repeat;
     background-size: 50px 50px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: var(--text-light);
+    transition: all 0.3s ease;
+    padding: 2rem 0;  /* Full header padding */
+}
+
+/* Minimized header styles */
+.App-header.minimized {
+    padding: 0.5rem 0;  /* Reduced header padding */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+}
+
+/* Adjust logo size when header is minimized */
+.App-header.minimized .App-logo {
+    width: 4rem;
+    height: 4rem;
+    transition: all 1s ease;
+}
+
+/* Optionally adjust title and lead font sizes */
+.App-header.minimized h1 {
+    font-size: 1.666rem; 
+    transition: all 0.5s ease;
+}
+
+.App-header.minimized .lead {
+    font-size: 0.888rem;
+    transition: all 0.3s ease;
 }
 
 .container {
@@ -69,35 +96,44 @@ input[type="date"]::placeholder {
     color: #aaa;
 }
 
+input[type="range"] {
+    -webkit-appearance: none;
+    /* width: 100%; */
+    height: 0.333rem;
+    background: #ddd;
+    border-radius: 0.25rem;
+    outline: none;
+    transition: background 0.3s;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary-color); /* Change to your desired color */
+    border-radius: 50%;
+    border: 1px solid purple;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border-color: var(--primary-color);
+    cursor: pointer;
+  }
+  
+
 .message-slider {
     width: 100%;
-    max-width: 600px;
+    /* max-width: 600px; */
     overflow: hidden;
     position: relative;
-    margin: 0 auto;
-    padding-bottom: 30px; /* Space for dots */
-}
-
-.slick-dots {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    display: flex !important;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.slick-dots li button:before {
-    font-size: 0.75rem;
-    color: var(--primary-color);
-    opacity: 0.5;
-}
-
-.slick-dots li.slick-active button:before {
-    opacity: 1;
+    /* margin: 0 auto; */
+    /* padding-bottom: 30px; Space for dots */
 }
 
 .message {
@@ -106,18 +142,13 @@ input[type="date"]::placeholder {
     padding: 15px 20px; /* Adjusted for original typography */
     font-size: 1.1rem; /* Restored original typography */
     line-height: 1.5; /* Restored original line-height */
-    color: var(--text-color);
-    background-color: #fff; /* Bright white background */
-    /* border: 1px solid rgba(0, 0, 0, 0.1); Subtle border */
     border-radius: var(--border-radius); /* Smooth corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for modern look */
-    text-align: center;
-    min-height: 150px; /* Prevent collapse for short messages */
     transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add hover animation */
 }
 
 .about {
-    width: 85%;
+    max-width: 80%;
     margin: 10px auto;
     padding: 30px 20px; /* Adjusted for original typography */
     font-size: 1.1rem; /* Restored original typography */

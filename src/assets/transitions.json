@@ -2,7 +2,7 @@
   "transitions": [
     {
       "id": "leap-1",
-      "title": "Transition 1",
+      "title": "Leap #1",
       "icon": "looks_one",
       "minWeeks": 5,
       "maxWeeks": 6,
@@ -10,7 +10,7 @@
     },
     {
       "id": "leap-2",
-      "title": "Transition 2",
+      "title": "Leap #2",
       "icon": "looks_two",
       "minWeeks": 8,
       "maxWeeks": 9,
@@ -18,7 +18,7 @@
     },
     {
       "id": "leap-3",
-      "title": "Transition 3",
+      "title": "Leap #3",
       "icon": "looks_3",
       "minWeeks": 12,
       "maxWeeks": 12,
@@ -26,7 +26,7 @@
     },
     {
       "id": "leap-4",
-      "title": "Transition 4",
+      "title": "Leap #4",
       "icon": "looks_4",
       "minWeeks": 15,
       "maxWeeks": 19,
@@ -34,7 +34,7 @@
     },
     {
       "id": "leap-5",
-      "title": "Transition 5",
+      "title": "Leap #5",
       "icon": "looks_5",
       "minWeeks": 23,
       "maxWeeks": 26,
@@ -42,7 +42,7 @@
     },
     {
       "id": "leap-6",
-      "title": "Transition 6",
+      "title": "Leap #6",
       "icon": "looks_6",
       "minWeeks": 29,
       "maxWeeks": 30,
@@ -50,7 +50,7 @@
     },
     {
       "id": "leap-7",
-      "title": "Transition 7",
+      "title": "Leap #7",
       "icon": "filter_7",
       "minWeeks": 34,
       "maxWeeks": 37,
@@ -58,7 +58,7 @@
     },
     {
       "id": "leap-8",
-      "title": "Transition 8",
+      "title": "Leap #8",
       "icon": "filter_8",
       "minWeeks": 42,
       "maxWeeks": 47,

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react'; // Added useMemo
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import babyImage from '../assets/baby-girl.svg';
@@ -9,8 +9,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-// Import the custom hook
 import { useBabyTransitions } from '../hooks/useBabyTransitions';
 
 function preloadImage(url) {
@@ -22,7 +20,8 @@ preloadImage(babyImage);
 preloadImage(headerImage);
 
 function BabyWeeksCalculator() {
-  const [startDate, setStartDate] = useState(null); // Default to null
+  const [startDate, setStartDate] = useState(null);
+  const [slideIndex, setSlideIndex] = useState(0);
   const sliderRef = useRef(null);
 
   const {
@@ -33,42 +32,34 @@ function BabyWeeksCalculator() {
     setCurrentMessageIndex,
   } = useBabyTransitions(startDate, transitionsData);
 
-  // Memoize formatted transitions
-  const memoizedFormattedTransitions = useMemo(() => {
-    return allTransitions.map(transition => ({
-      ...transition,
-      formattedMessage: (
-        <>
-          <h5 className="transition-title">{transition.title}</h5>
-          <p className="transition-weeks text-muted fs-6">
-            Weeks: {transition.minWeeks}-{transition.maxWeeks}
-          </p>
-          <p className="transition-description">{transition.description}</p>
-        </>
-      ),
-    }));
-  }, [allTransitions]);
-
-  // Show slider if valid transitions exist
   const showSlider =
     startDate &&
     weekDifference !== null &&
     allTransitions.length > 0 &&
     currentMessageIndex !== null;
 
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: (index) => setSlideIndex(index),
+  };
+
   return (
     <div className="App text-center">
-      <header className="App-header">
+      <header className={`App-header ${startDate ? 'minimized' : ''}`}>
         <div className="container pt-4">
           <img src={babyImage} className="App-logo" alt="Baby" />
-          <h1 className="fw-bold">Babyweeks v1</h1>
+          <h1 className="fw-bold">Growth Leaps</h1>
           <p className="lead">
-            Explore Your Infant's Development <Link to="/about"><span className="material-icons">info</span></Link>
+            Explore Your Infant's Development {" "}
+            <Link to="/about">
+              <span className="material-icons">info</span>
+            </Link>
           </p>
         </div>
-        <svg height="1" width="100%" className="header-line">
-          <line x1="0" y1="0" x2="100%" y2="1" stroke="yellow" strokeWidth="4" />
-        </svg>
       </header>
 
       <main>
@@ -84,32 +75,31 @@ function BabyWeeksCalculator() {
             />
           </div>
 
-          {/* Show fallback message only when no valid transitions exist */}
           {!showSlider && displayedMessage && (
-            <div className="message show">
-              {displayedMessage}
-            </div>
+            <div className="message show">{displayedMessage}</div>
           )}
 
-          {/* Render slider when transitions exist */}
           {showSlider && (
             <div className="message-slider">
-              <Slider
-                ref={sliderRef}
-                dots={true}
-                infinite={false}
-                speed={500}
-                slidesToShow={1}
-                slidesToScroll={1}
-                initialSlide={currentMessageIndex || 0}
-                afterChange={(index) => setCurrentMessageIndex(index)}
-              >
-                {memoizedFormattedTransitions.map((transition, index) => (
-                  <div key={index} className="message">
-                    {Math.abs(index - currentMessageIndex) <= 1
-                      ? transition.formattedMessage // Render precomputed message
-                      : <p>Loading...</p>
-                    }
+              <input
+                type="range"
+                min={0}
+                max={allTransitions.length - 1}
+                value={slideIndex}
+                onChange={(e) => {
+                  const index = Number(e.target.value);
+                  setSlideIndex(index);
+                  sliderRef.current.slickGoTo(index);
+                }}
+              />
+              <Slider ref={sliderRef} {...settings}>
+                {allTransitions.map((transition, index) => (
+                  <div key={index} className="message mt-4">
+                    <h5 className="transition-title">{transition.title}</h5>
+                    <p className="transition-weeks text-muted fs-6">
+                      Weeks: {transition.minWeeks}-{transition.maxWeeks}
+                    </p>
+                    <p className="transition-description">{transition.description}</p>
                   </div>
                 ))}
               </Slider>
@@ -119,7 +109,7 @@ function BabyWeeksCalculator() {
       </main>
 
       <footer className="mt-5 py-3">
-        <p>© 2025 · Crafted with ❤️ by ntemposd</p>
+        <p>Crafted with ❤️ by ntemposd</p>
       </footer>
     </div>
   );
