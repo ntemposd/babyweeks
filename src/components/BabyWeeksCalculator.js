@@ -75,6 +75,13 @@ function BabyWeeksCalculator() {
             />
           </div>
 
+          {/* New message displaying baby's age */}
+          {weekDifference !== null && (
+            <div className="baby-age-message">
+              <p className="lead">Your baby is <strong>{weekDifference} weeks</strong> old.</p>
+            </div>
+          )}
+
           {!showSlider && displayedMessage && (
             <div className="message show">{displayedMessage}</div>
           )}
