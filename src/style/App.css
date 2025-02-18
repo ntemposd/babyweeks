@@ -29,8 +29,6 @@
     padding: 2rem 0;
 }
 
-
-
 /* Minimized header styles */
 .App-header.minimized {
     padding: 0.5rem 0;  /* Reduced header padding */
@@ -128,7 +126,6 @@ input[type="range"] {
     border-color: var(--primary-color);
     cursor: pointer;
   }
-  
 
 .message-slider {
     width: 100%;
@@ -185,7 +182,6 @@ footer {
     display: flex;
     align-items: center;
     gap: 4px;
-    /* background-color: #f0f0f0; */
     color: #333;
     border: none;
     border-radius: 50px;
