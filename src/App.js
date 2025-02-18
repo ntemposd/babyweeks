@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import './style/App.css';
 import BabyWeeksCalculator from './components/BabyWeeksCalculator';
 import AboutPage from './components/AboutPage'; // Optional: Add another page if needed
 

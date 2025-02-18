@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'; // Use ReactDOM from 'react-dom/client' for React 18
-import './index.css'; // Optional, if you have a CSS file for styles
+import './style/index.css'; // Optional, if you have a CSS file for styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App'; // Your main App component
 

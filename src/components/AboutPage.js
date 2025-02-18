@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import babyImage from '../assets/baby-girl.svg';
-import headerImage from '../assets/baby_texture.png';
+
+const babyImage = "/babyweeks/assets/baby-girl.svg";
+const headerImage = "/babyweeks/assets/baby_texture.png";
 
 function preloadImage(url) {
   const img = new Image();

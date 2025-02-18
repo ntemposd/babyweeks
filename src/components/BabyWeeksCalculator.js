@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
-import babyImage from '../assets/baby-girl.svg';
-import headerImage from '../assets/baby_texture.png';
-import transitionsData from '../assets/transitions.json';
+import '../style/App.css';
+import transitionsData from '../data/transitions.json';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Slider from "react-slick";
@@ -11,13 +9,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useBabyTransitions } from '../hooks/useBabyTransitions';
 
-function preloadImage(url) {
-  const img = new Image();
-  img.src = url;
-}
-
-preloadImage(babyImage);
-preloadImage(headerImage);
+const babyImage = "/babyweeks/assets/baby-girl.svg";
+const headerImage = "/babyweeks/assets/baby_texture.png";
 
 function BabyWeeksCalculator() {
   const [startDate, setStartDate] = useState(null);
