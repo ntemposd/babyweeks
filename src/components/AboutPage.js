@@ -31,10 +31,10 @@ const AboutPage = () => {
           <img src={babyImage} className="App-logo" alt="Baby" />
           <h1 className="fw-bold">Growth Leaps</h1>
           <p className="fw-light mt-1">
-            <span className="lead">Why I built this app.</span>{' '}
-            <span className="material-icons" aria-label="Under construction">
+            <span className="lead">About this app</span>{' '}
+            {/* <span className="material-icons" aria-label="Under construction">
               construction
-            </span>
+            </span> */}
           </p>
         </div>
         {/*
@@ -58,11 +58,8 @@ const AboutPage = () => {
             <h2>How it works</h2>
             <p>
               Simply input a birthdate to calculate the weeks since birth and view
-              developmental progress content for a baby's first year. Using the
-              app, we’ve been able to quickly determine the current week of our
-              kids' growth cycles, which has been especially helpful for my
-              partner, saving the hassle of manually counting on a calendar. The
-              app is free,{' '}
+              developmental progress content for a baby's first year.
+              The app is free,{' '}
               <a
                 href="https://github.com/ntemposd/babyweeks"
                 target="_blank"
@@ -72,12 +69,19 @@ const AboutPage = () => {
                 open-source
               </a>
               , and runs directly in your browser.
+            </p> 
+            <h2>Why I built it</h2>
+            <p>
+              I created this app as a personal project to help my partner and I better understand our baby's growth cycles and navigate the challenges of early parenthood.
+              Using the app, we’ve been able to quickly determine the current week of our
+              kids' growth cycles, which has been especially helpful for my
+              partner, saving the hassle of manually counting on a calendar. 
             </p>
 
-            <h2>Roadmap</h2>
+            <h3>Upcoming improvements</h3>
             <p>
-              Add languages <br />
-              Add more content <br />
+              Translate into more languages <br />
+              Extend leaps content <br />
               Improve date selection <br />
             </p>
           </section>
