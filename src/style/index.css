@@ -1,0 +1,63 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Roboto, sans-serif;
+    overflow-x: hidden;
+}
+:root {
+    --primary-color: #6c63ff;
+    --header-bg-color: #1f1137;
+    --light-bg-color: #f9f9f9;
+    --text-color: #333;
+    --text-light: #fff;
+    --shadow-light: #0000001a;
+    --shadow-dark: #0003;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+header {
+    width: 100%; /* Ensure header spans the full width */
+    text-align: center; /* Center text inside the header */
+}
+
+main {
+    flex: 1; /* Allow main content to grow and push the footer down */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center main content horizontally */
+    justify-content: flex-start; /* Align content to the top of the main area */
+    /* padding-top: 2rem; Add spacing below the header */
+    width: 100%;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+
+/* General Layout */
+a {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: initial;
+}
+
+.material-icons,
+.material-icons-outlined {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga";
+    color: #d60270;
+    font-family: Material Icons;
+    /* display: inline-block; */
+    /* font-size: 24px; */
+    /* font-style: normal; */
+    /* font-weight: 400; */
+    /* letter-spacing: normal; */
+    text-rendering: optimizeLegibility;
+    vertical-align: top;
+    /* white-space: nowrap; */
+}

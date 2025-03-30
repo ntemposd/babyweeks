@@ -1,0 +1,68 @@
+{
+  "transitions": [
+    {
+      "id": "leap-1",
+      "title": "Leap #1",
+      "icon": "looks_one",
+      "minWeeks": 5,
+      "maxWeeks": 6,
+      "description": "As a consequence of eye development, your baby becomes more interested in their environment. Their vision range increases beyond 20-30 centimeters long. Due to lacrimal gland development, their eyes begin producing tears just like all land mammals do. The tears help lubricate their eyes, remove irritants, and aid their immune system."
+    },
+    {
+      "id": "leap-2",
+      "title": "Leap #2",
+      "icon": "looks_two",
+      "minWeeks": 8,
+      "maxWeeks": 9,
+      "description": "During this transition, your baby starts developing movement consciously rather than reflectively. They might momentarily lift their head during tummy time and turn them towards sounds. They might also move and look curiously at both sides of their hands after twisting them. They now start feeling the movement of their body parts even if they cannot control it well yet."
+    },
+    {
+      "id": "leap-3",
+      "title": "Leap #3",
+      "icon": "looks_3",
+      "minWeeks": 12,
+      "maxWeeks": 12,
+      "description": "Up to now, your infant's brain has grown by 25% compared to their due date brain size. Senses like vision and hearing clarity are sharpening, while motion developments will let your baby move smoother and less robotic. They might also start grabbing, holding, and tasting things by putting them into their mouth. Vocal development is also developing fast."
+    },
+    {
+      "id": "leap-4",
+      "title": "Leap #4",
+      "icon": "looks_4",
+      "minWeeks": 15,
+      "maxWeeks": 19,
+      "description": "During this transition, your baby starts searching for their caretaker and following them with their eyes. Their upgraded motion control enables them to move all their body limbs and pass things from one hand to the opposite. They now see, scent, feel, and taste better. They might start waving their hand and changing facial expressions according to the sounds they hear."
+    },
+    {
+      "id": "leap-5",
+      "title": "Leap #5",
+      "icon": "looks_5",
+      "minWeeks": 23,
+      "maxWeeks": 26,
+      "description": "During this transition, your baby starts developing an understanding of relationships between things; most importantly, here is when your baby understands the idea of distance. Want to reach for a pacifier or observe their caretaker leaving the room, same reaction. Your baby might start protesting to show they do not like to remain away from things and people. Motion control is now even better."
+    },
+    {
+      "id": "leap-6",
+      "title": "Leap #6",
+      "icon": "looks_6",
+      "minWeeks": 29,
+      "maxWeeks": 30,
+      "description": "Even if it comes after a short gap, this period is considered the apogee of Transition 5. Although it might become stressful, keep it up, it's usually brief. Your baby begins paying closer attention to the distance between themselves and their caretakers. As a result, they might resist putting themselves to sleep unless caretakers are close enough."
+    },
+    {
+      "id": "leap-7",
+      "title": "Leap #7",
+      "icon": "filter_7",
+      "minWeeks": 34,
+      "maxWeeks": 37,
+      "description": "By the end of this transition, your infant is growing strong and more confident in their movements. They might be already trying to stand on their own feet, aided by you, and try to crawl as well; however, balance is not in the picture yet. At the same time, they start inspecting things around. You might see them paying very close attention to the stuff they meet, like hair left on the floor."
+    },
+    {
+      "id": "leap-8",
+      "title": "Leap #8",
+      "icon": "filter_8",
+      "minWeeks": 42,
+      "maxWeeks": 47,
+      "description": "The last transition before your infant becomes a toddler, up until the age of 4. Your baby now is strong enough to explore the world around them and have an opinion. They might understand sequential event flows and refuse to follow their everyday routine. They enjoy meeting new things and going places with their caretakers."
+    }
+  ]
+}
