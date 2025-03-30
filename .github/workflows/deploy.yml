@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - babyweeks-react  # Trigger on this branch
+      - main  # Trigger on this branch
 
 jobs:
   deploy:
