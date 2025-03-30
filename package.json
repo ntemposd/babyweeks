@@ -22,7 +22,7 @@
     "eject": "react-scripts eject",
     "postbuild": "cp build/index.html build/404.html",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -b babyweeks-react"
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
