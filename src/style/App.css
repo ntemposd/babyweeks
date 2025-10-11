@@ -18,7 +18,10 @@
     align-items: center;
     width: 100%;
     
-    background-image: url('../../public/assets/baby_texture.png'); /* ✅ Use relative path */
+    /* Removed background-image from CSS because url(...) inside src/ CSS is resolved by webpack.
+       We now set the background image at runtime via inline style in the components so the
+       browser can reuse the preloaded public asset (process.env.PUBLIC_URL). */
+    /* background-image: url('/babyweeks/assets/baby_texture.png'); */
     background-repeat: repeat;
     background-size: 50px 50px;
     background-position: center;
@@ -205,4 +208,3 @@ footer {
   .back-button:focus {
     outline: 2px solid #ffcc00;
   }
-  

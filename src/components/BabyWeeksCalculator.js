@@ -10,7 +10,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { useBabyTransitions } from '../hooks/useBabyTransitions';
 
 const babyImage = "/babyweeks/assets/baby-girl.svg";
-const headerImage = "/babyweeks/assets/baby_texture.png";
 
 function BabyWeeksCalculator() {
   const [startDate, setStartDate] = useState(null);
@@ -40,14 +39,20 @@ function BabyWeeksCalculator() {
     afterChange: (index) => setSlideIndex(index),
   };
 
+  // compute header background path using PUBLIC_URL so it works in dev and on GitHub Pages
+  const headerBg = `${process.env.PUBLIC_URL || ''}/assets/baby_texture.png`;
+
   return (
     <div className="App text-center">
-      <header className={`App-header ${startDate ? 'minimized' : ''}`}>
+      <header
+        className={`App-header ${startDate ? 'minimized' : ''}`}
+        style={{ backgroundImage: `url(${headerBg})` }}
+      >
         <div className="container pt-4">
           <img src={babyImage} className="App-logo" alt="Baby" />
-          <h1 className="fw-bold">Growth Leaps</h1>
+          <h1 className="fw-bold">Babyweeks</h1>
           <p className="lead">
-            Explore Your Infant's Development {" "}
+            Explore Your Infant's Growth Leaps {" "}
             <Link to="/about">
               <span className="material-icons">info</span>
             </Link>

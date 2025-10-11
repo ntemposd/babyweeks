@@ -70,6 +70,23 @@ If you need to deploy manually:
    npm run deploy
    ```
 
+### Branching & deployment (recommended workflow)
+
+- Develop on feature branches based off `main`:
+  - git checkout -b feature/some-feature
+  - make changes, commit, push, open a Pull Request to `main`.
+- Merge into `main` only after review and CI checks pass.
+- The GitHub Actions workflow (./github/workflows/deploy.yml) runs on pushes to `main` and builds + deploys the production bundle to the `gh-pages` branch automatically.
+- Do NOT edit `gh-pages` directly under normal development — it is the generated deployment artifact. Editing it directly is risky and may be overwritten by the automatic deploy.
+- Emergency hotfix: if you must update the deployed site immediately, create a build locally (`npm run build`) and deploy with the `deploy` script (`npm run deploy`) or carefully push a tested change to `main` so the workflow publishes it.
+
+Notes
+
+- Local dev: the app uses `BrowserRouter basename="/babyweeks"`. When running `npm start` open:
+  - http://localhost:3000/babyweeks/
+  - or temporarily remove/adjust the `basename` in src/App.js for convenience.
+- This keeps source-of-truth in `main` and leaves `gh-pages` as the safe deployment branch.
+
 ---
 
 ## File Structure
